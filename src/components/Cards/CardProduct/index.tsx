@@ -1,4 +1,7 @@
+"use client";
+
 import { IProduct } from "@/@types/products";
+import formatCurrency from "@/functions/formatCurrency";
 import Image from "next/image";
 
 interface ProductCardProps {
@@ -10,7 +13,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     <li className="aspect-square transition-opacity animate-fadeIn">
       <a
         className="relative inline-block h-full w-full"
-        href={`/product/${product.id}`}
+        href={`/products/${product.id}`}
       >
         <div className="group flex h-full w-full items-center justify-center overflow-hidden rounded-lg border bg-white hover:border-blue-600 dark:bg-black relative border-neutral-200 dark:border-neutral-800">
           <Image
@@ -28,7 +31,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                 {product.title}
               </h3>
               <p className="flex-none rounded-full bg-blue-600 p-2 text-white">
-                {product.price}
+                {formatCurrency(product.price, "BRL")}
                 <span className="ml-1 inline hidden @[275px]/label:inline">
                   {product.rating.rate} ({product.rating.count})
                 </span>
