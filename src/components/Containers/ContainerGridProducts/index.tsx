@@ -12,7 +12,7 @@ const ContainerGridProducts = () => {
   }
 
   return (
-    <section className="flex w-full h-[600px] gap-4 p-16 sm:flex-row flex-col">
+    <section className="flex w-full h-[600px] gap-4 sm:p-16 p-10 sm:flex-row flex-col">
       <div className="flex-[2] flex md:min-w-[800px]">
         <CardProductFeatured product={data[0]} />
       </div>

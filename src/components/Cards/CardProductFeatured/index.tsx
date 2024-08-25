@@ -1,4 +1,5 @@
 import { IProduct } from "@/@types/products";
+import formatCurrency from "@/functions/formatCurrency";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -18,7 +19,7 @@ const CardProductFeatured = ({ product }: { product: IProduct }) => {
               {product.title}
             </h3>
             <p className="flex-none rounded-full bg-blue-600 p-2 text-white">
-              {product.price}
+              {formatCurrency(product.price)}
             </p>
           </div>
         </div>
