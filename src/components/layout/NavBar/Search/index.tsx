@@ -3,6 +3,7 @@
 import { Input } from "@/components/ui/input";
 import { useProductStore } from "@/stores/productsStore/products-store";
 import { Search } from "@mui/icons-material";
+import { usePathname, useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 const NavBarSearch = () => {
@@ -10,11 +11,16 @@ const NavBarSearch = () => {
   const filterByName = useProductStore(
     (state: { filterByName: any }) => state.filterByName,
   );
-
+  const router = useRouter();
+  const pathname = usePathname();
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearchTerm(value);
     filterByName(value);
+
+    if (pathname !== "/search") {
+      router.push("/search");
+    }
   };
 
   return (
