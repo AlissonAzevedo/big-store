@@ -3,6 +3,7 @@
 import { IProduct } from "@/@types/products";
 import formatCurrency from "@/functions/formatCurrency";
 import Image from "next/image";
+import Link from "next/link";
 
 interface ProductCardProps {
   product: IProduct;
@@ -11,7 +12,7 @@ interface ProductCardProps {
 export default function ProductCard({ product }: ProductCardProps) {
   return (
     <li className="aspect-square transition-opacity animate-fadeIn">
-      <a
+      <Link
         className="relative inline-block h-full w-full"
         href={`/products/${product.id}`}
       >
@@ -39,7 +40,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             </div>
           </div>
         </div>
-      </a>
+      </Link>
     </li>
   );
 }
