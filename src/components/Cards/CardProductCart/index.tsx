@@ -1,8 +1,10 @@
 "use client";
 
 import { IProduct } from "@/@types/products";
+import { Button } from "@/components/ui/button";
+import formatCurrency from "@/functions/formatCurrency";
 import { truncateString } from "@/functions/truncateString";
-import { Cancel } from "@mui/icons-material";
+import { Add, Clear, Remove } from "@mui/icons-material";
 import Image from "next/image";
 import React from "react";
 
@@ -13,23 +15,24 @@ interface CardProductCartProps {
   product: { quantity: number } & IProduct;
 }
 
-const CardProductCart: React.FC<CardProductCartProps> = ({
+const CardProductCart = ({
   onDecreaseQuantity,
   onIncreaseQuantity,
   onRemove,
   product,
-}) => {
+}: CardProductCartProps) => {
   return (
     <li className="flex w-full flex-col border-b border-neutral-300 dark:border-neutral-700">
       <div className="relative flex w-full flex-row justify-between px-1 py-4 items-center">
         <div className="absolute z-40 -ml-1 -mt-12">
-          <button
-            aria-label="Remove cart item"
-            className="flex h-[24px] w-[24px] items-center justify-center rounded-full"
+          <Button
+            className="flex h-[24px] w-[24px] items-center justify-center rounded-full p-1 bg-neutral-50"
             onClick={() => onRemove(product.id)}
+            size="icon"
+            variant="ghost"
           >
-            <Cancel className="mx-[1px] h-6 w-6 bg-neutral-500 dark:text-black text-white rounded-full" />
-          </button>
+            <Clear className="mx-[1px] h-5 w-5 text-neutral-500 dark:text-black" />
+          </Button>
         </div>
 
         <div className="flex flex-row">
@@ -54,55 +57,31 @@ const CardProductCart: React.FC<CardProductCartProps> = ({
 
         <div className="flex h-16 flex-col justify-between">
           <p className="flex justify-end space-y-2 text-right text-sm">
-            R$ {product.price.toFixed(2)}
+            {product.price && formatCurrency(product.price)}
           </p>
 
-          <div className="ml-auto flex h-9 flex-row items-center rounded-full border border-neutral-200 dark:border-neutral-700">
-            <button
-              aria-label="Reduce item quantity"
+          <div className="ml-auto flex h-9 flex-row items-center rounded-full border border-neutral-200 dark:border-neutral-700 p-1">
+            <Button
               className="ease flex h-full min-w-[36px] max-w-[36px] flex-none items-center justify-center rounded-full p-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80"
               onClick={() => onDecreaseQuantity(product.id)}
+              size="icon"
+              variant="ghost"
             >
-              <svg
-                className="h-4 w-4 dark:text-neutral-500"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 12h14"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
+              <Remove className="h-4 w-4 dark:text-neutral-500" />
+            </Button>
 
             <p className="w-6 text-center">
               <span className="w-full text-sm">{product.quantity}</span>
             </p>
 
-            <button
-              aria-label="Increase item quantity"
+            <Button
               className="ease flex h-full min-w-[36px] max-w-[36px] flex-none items-center justify-center rounded-full p-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80"
               onClick={() => onIncreaseQuantity(product.id)}
+              size="icon"
+              variant="ghost"
             >
-              <svg
-                className="h-4 w-4 dark:text-neutral-500"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 4.5v15m7.5-7.5h-15"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
+              <Add className="h-4 w-4 dark:text-neutral-500" />
+            </Button>
           </div>
         </div>
       </div>
