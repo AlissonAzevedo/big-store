@@ -1,7 +1,7 @@
 import { Logo } from "@/components/@shared/logo";
 import { DrawerCart } from "@/components/layout/DrawerCart";
-import { Input } from "@/components/ui/input";
-import { Menu, Search } from "@mui/icons-material";
+import { NavBarSearch } from "@/components/layout/NavBar/Search";
+import { Menu } from "@mui/icons-material";
 
 export const NavBar = () => {
   return (
@@ -53,17 +53,7 @@ export const NavBar = () => {
           </li>
         </ul>
       </div>
-      <div className="hidden justify-center md:flex md:w-1/3">
-        <form
-          action="/search"
-          className="w-max-[550px] relative w-full lg:w-80 xl:w-full"
-        >
-          <Input placeholder={"Pesquisar"} />
-          <div className="absolute right-0 top-0 mr-3 flex h-full items-center">
-            <Search />
-          </div>
-        </form>
-      </div>
+      <NavBarSearch />
       <DrawerCart />
     </nav>
   );
