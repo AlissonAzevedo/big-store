@@ -1,3 +1,4 @@
+import { CarouselProducts } from "@/components/Carousel/CarouselProducts";
 import { ContainerGridProducts } from "@/components/Containers/ContainerGridProducts";
 import { Metadata } from "next";
 
@@ -10,6 +11,7 @@ const Home = () => {
   return (
     <div>
       <ContainerGridProducts />
+      <CarouselProducts />
     </div>
   );
 };
