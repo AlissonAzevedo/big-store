@@ -12,13 +12,13 @@ const ContainerGridProducts = () => {
   }
 
   return (
-    <section className="flex w-full h-[600px] gap-4 p-16">
+    <section className="flex w-full h-[600px] gap-4 p-16 sm:flex-row flex-col">
       <div className="flex-[2] flex md:min-w-[800px]">
         <CardProductFeatured product={data[0]} />
       </div>
-      <div className="flex-[1] flex flex-col gap-4">
+      <div className="flex flex-col gap-4 sm:flex-[1] flex-[2] md:w-full">
         {data.slice(1, 3).map((product, index) => (
-          <div className="flex-grow" key={index}>
+          <div className="flex-grow " key={index}>
             <CardProductFeatured product={product} />
           </div>
         ))}
