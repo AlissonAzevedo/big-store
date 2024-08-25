@@ -1,4 +1,4 @@
-import ContainerProducts from "@/components/Containers/ContainerProducts";
+import ContainerProducts from "../../../components/Containers/ContainerAllProducts";
 
 const Page = () => {
   return (

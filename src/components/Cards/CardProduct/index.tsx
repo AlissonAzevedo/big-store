@@ -18,7 +18,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="group flex h-full w-full items-center justify-center overflow-hidden rounded-lg border bg-white hover:border-blue-600 dark:bg-black relative border-neutral-200 dark:border-neutral-800">
           <Image
             alt={product.title}
-            className="relative h-full w-full object-contain transition duration-300 ease-in-out group-hover:scale-105"
+            className="relative h-full w-full object-contain transition duration-300 ease-in-out group-hover:scale-105 p-8"
             layout="fill"
             objectFit="contain"
             priority
@@ -32,8 +32,8 @@ export default function ProductCard({ product }: ProductCardProps) {
               </h3>
               <p className="flex-none rounded-full bg-blue-600 p-2 text-white">
                 {formatCurrency(product.price, "BRL")}
-                <span className="ml-1 inline hidden @[275px]/label:inline">
-                  {product.rating.rate} ({product.rating.count})
+                <span className="ml-1 inline @[275px]/label:inline">
+                  {product?.rating?.rate} ({product?.rating?.count})
                 </span>
               </p>
             </div>

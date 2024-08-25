@@ -27,7 +27,10 @@ const useProductStore = create<ProductState>((set) => ({
   products: [],
 
   setProducts: (products) =>
-    set(() => ({ filteredProducts: products, products })),
+    set(() => ({
+      filteredProducts: products,
+      products,
+    })),
 }));
 
 export { useProductStore };
