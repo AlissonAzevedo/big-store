@@ -2,15 +2,25 @@
 
 import { LoadingSkeletonProductDetail } from "@/components/@shared/LoadingSkeletonProductDetail/LoadingSkeletonProductDetail";
 import { Button } from "@/components/ui/button";
+import { useCart } from "@/hooks/cart/useCart";
 import { useGetOneProduct } from "@/hooks/products/useGet/useGetOne";
+import { useCartStore } from "@/stores/cartStore/cart-store";
 import { AddShoppingCart } from "@mui/icons-material";
-import React, { useState } from "react";
+import { useParams } from "next/navigation";
+import React from "react";
 
 const ProductCardDetail = () => {
-  const { data, isLoading } = useGetOneProduct("1");
+  const params = useParams<{ id: string }>();
+  const { data, isError, isLoading } = useGetOneProduct(String(params.id!));
+
+  const { addProduct } = useCart();
 
   if (isLoading) {
     return <LoadingSkeletonProductDetail />;
+  }
+
+  if (isError) {
+    return <div>Erro ao carregar produto</div>;
   }
 
   return (
@@ -37,9 +47,12 @@ const ProductCardDetail = () => {
             {data?.description}
           </dd>
         </dl>
-        <Button className="w-full rounded-lg bg-blue-600 py-4 text-white transition-all hover:bg-blue-700 h-12">
+        <Button
+          className="w-full rounded-lg bg-blue-600 py-4 text-white transition-all hover:bg-blue-700 h-12"
+          onClick={() => addProduct(data!)}
+        >
           <AddShoppingCart />
-          Adicionar ao carrinho
+          <span className={""}>Adicionar ao carrinho</span>
         </Button>
       </div>
     </div>
