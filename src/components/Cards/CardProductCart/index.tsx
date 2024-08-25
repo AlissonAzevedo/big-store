@@ -1,6 +1,8 @@
 "use client";
 
 import { IProduct } from "@/@types/products";
+import { truncateString } from "@/functions/truncateString";
+import { Cancel } from "@mui/icons-material";
 import Image from "next/image";
 import React from "react";
 
@@ -23,23 +25,10 @@ const CardProductCart: React.FC<CardProductCartProps> = ({
         <div className="absolute z-40 -ml-1 -mt-12">
           <button
             aria-label="Remove cart item"
-            className="flex h-[24px] w-[24px] items-center justify-center rounded-full bg-neutral-500"
+            className="flex h-[24px] w-[24px] items-center justify-center rounded-full"
             onClick={() => onRemove(product.id)}
           >
-            <svg
-              className="mx-[1px] h-4 w-4 text-white dark:text-black"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6 18 18 6M6 6l12 12"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <Cancel className="mx-[1px] h-6 w-6 bg-neutral-500 dark:text-black text-white rounded-full" />
           </button>
         </div>
 
@@ -56,7 +45,9 @@ const CardProductCart: React.FC<CardProductCartProps> = ({
           </div>
           <a className="z-30 ml-2 flex flex-row space-x-4" href="#">
             <div className="flex flex-1 flex-col text-base">
-              <span className="leading-tight">{product.title}</span>
+              <span className="leading-tight" title={product.title}>
+                {truncateString(product.title, 25)}
+              </span>
             </div>
           </a>
         </div>
