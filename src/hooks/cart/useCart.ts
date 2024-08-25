@@ -9,6 +9,7 @@ const useCart = () => {
   const clearCart = useCartStore((state) => state.clearCart);
   const handleViewCart = useCartStore((state) => state.handleViewCart);
   const showCart = useCartStore((state) => state.showCart);
+  const total = useCartStore((state) => state.total);
 
   return {
     addProduct,
@@ -19,6 +20,7 @@ const useCart = () => {
     increaseQuantity,
     removeProduct,
     showCart,
+    total,
   };
 };
 

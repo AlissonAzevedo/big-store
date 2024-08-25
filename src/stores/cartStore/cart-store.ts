@@ -11,47 +11,63 @@ interface CartState {
   increaseQuantity: (productId: number) => void;
   removeProduct: (productId: number) => void;
   showCart: boolean;
+  total: number;
 }
+
+const calculateTotal = (cart: ({ quantity: number } & IProduct)[]) => {
+  return cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+};
 
 const useCartStore = create<CartState>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       addProduct: (product) =>
         set((state) => {
           const existingProduct = state.cart.find(
             (item) => item.id === product.id,
           );
 
+          let newCart;
           if (existingProduct) {
-            return {
-              cart: state.cart.map((item) =>
-                item.id === product.id
-                  ? { ...item, quantity: item.quantity + 1 }
-                  : item,
-              ),
-              showCart: true,
-            };
+            newCart = state.cart.map((item) =>
+              item.id === product.id
+                ? { ...item, quantity: item.quantity + 1 }
+                : item,
+            );
           } else {
-            return {
-              cart: [...state.cart, { ...product, quantity: 1 }],
-              showCart: true,
-            };
+            newCart = [...state.cart, { ...product, quantity: 1 }];
           }
+
+          return {
+            cart: newCart,
+            showCart: true,
+            total: calculateTotal(newCart),
+          };
         }),
 
       cart: [],
-      clearCart: () => set({ cart: [] }),
+
+      clearCart: () =>
+        set(() => ({
+          cart: [],
+          total: 0,
+        })),
 
       decreaseQuantity: (productId) =>
-        set((state) => ({
-          cart: state.cart
+        set((state) => {
+          const newCart = state.cart
             .map((item) =>
               item.id === productId
                 ? { ...item, quantity: item.quantity - 1 }
                 : item,
             )
-            .filter((item) => item.quantity > 0),
-        })),
+            .filter((item) => item.quantity > 0);
+
+          return {
+            cart: newCart,
+            total: calculateTotal(newCart),
+          };
+        }),
 
       handleViewCart: () =>
         set((state) => ({
@@ -59,20 +75,30 @@ const useCartStore = create<CartState>()(
         })),
 
       increaseQuantity: (productId) =>
-        set((state) => ({
-          cart: state.cart.map((item) =>
+        set((state) => {
+          const newCart = state.cart.map((item) =>
             item.id === productId
               ? { ...item, quantity: item.quantity + 1 }
               : item,
-          ),
-        })),
+          );
+          return {
+            cart: newCart,
+            total: calculateTotal(newCart),
+          };
+        }),
 
       removeProduct: (productId) =>
-        set((state) => ({
-          cart: state.cart.filter((item) => item.id !== productId),
-        })),
+        set((state) => {
+          const newCart = state.cart.filter((item) => item.id !== productId);
+          return {
+            cart: newCart,
+            total: calculateTotal(newCart),
+          };
+        }),
 
       showCart: false,
+
+      total: 0,
     }),
     {
       name: "cart-storage",

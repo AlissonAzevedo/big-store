@@ -43,7 +43,3 @@ export default function ProductCard({ product }: ProductCardProps) {
     </li>
   );
 }
-
-ProductCard.defaultProps = {
-  currency: "BRL",
-};

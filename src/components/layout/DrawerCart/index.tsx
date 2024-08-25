@@ -1,11 +1,11 @@
 "use client";
 
 import { CardProductCart } from "@/components/Cards/CardProductCart";
+import { CardSummary } from "@/components/Cards/CardSummary";
 import { CartButton } from "@/components/layout/NavBar/Cart";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetFooter,
   SheetHeader,
@@ -13,8 +13,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { useCart } from "@/hooks/cart/useCart";
-import { useCartStore } from "@/stores/cartStore/cart-store";
-import React from "react";
+import React, { useState } from "react";
 
 const DrawerCart = () => {
   const {
@@ -53,12 +52,7 @@ const DrawerCart = () => {
           ))}
         </ul>
         <SheetFooter>
-          {/*<SheetClose asChild>*/}
-          {/*  <Button type="submit">Save changes</Button>*/}
-          {/*</SheetClose>*/}
-          {/*<SheetClose asChild>*/}
-          {/*  <Button type="button">Cancel</Button>*/}
-          {/*</SheetClose>*/}
+          {cart.length > 0 && <CardSummary shipping={0} taxes={0} />}
         </SheetFooter>
       </SheetContent>
     </Sheet>
