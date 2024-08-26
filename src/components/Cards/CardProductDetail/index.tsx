@@ -9,6 +9,7 @@ import { AddShoppingCart } from "@mui/icons-material";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import React from "react";
+import toast from "react-hot-toast";
 
 const ProductCardDetail = () => {
   const params = useParams<{ id: string }>();
@@ -31,7 +32,10 @@ const ProductCardDetail = () => {
           <Image
             alt={data?.title!}
             className="h-full w-full object-contain"
+            height={500}
+            objectFit="contain"
             src={data?.image!}
+            width={500}
           />
         </div>
       </div>

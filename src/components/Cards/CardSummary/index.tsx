@@ -1,6 +1,8 @@
+import { Button } from "@/components/ui/button";
 import formatCurrency from "@/functions/formatCurrency";
 import { useCart } from "@/hooks/cart/useCart";
 import React from "react";
+import toast from "react-hot-toast";
 
 interface CardSummaryProps {
   shipping: number;
@@ -8,7 +10,17 @@ interface CardSummaryProps {
 }
 
 const CardSummary = ({ shipping, taxes }: CardSummaryProps) => {
-  const { total } = useCart();
+  const { clearCart, total } = useCart();
+  const [loading, setLoading] = React.useState(false);
+
+  const BuyProducts = () => {
+    setLoading(true);
+    setTimeout(() => {
+      toast.success("Compra realizada com sucesso!");
+      clearCart();
+      setLoading(false);
+    }, 2000);
+  };
 
   return (
     <div className="py-4 text-sm text-neutral-500 dark:text-neutral-400 w-full">
@@ -28,6 +40,14 @@ const CardSummary = ({ shipping, taxes }: CardSummaryProps) => {
           {formatCurrency(total)}
         </p>
       </div>
+
+      <Button
+        className="w-full rounded-lg bg-blue-600 py-4 text-white transition-all hover:bg-blue-700 h-12"
+        disabled={loading}
+        onClick={BuyProducts}
+      >
+        Comprar
+      </Button>
     </div>
   );
 };
