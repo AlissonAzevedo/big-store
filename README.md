@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Documentação do Projeto
 
-## Getting Started
+### Descrição do Projeto
 
-First, run the development server:
+Este é um projeto chamado **Big Store**, desenvolvido utilizando **Next.js** e **React**. O objetivo do projeto é criar uma aplicação web moderna e escalável para uma loja online.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Como Rodar o Projeto
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Pré-requisitos
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Node.js (versão 14 ou superior)
+- npm (versão 6 ou superior) ou yarn ou pnpm ou bun
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+#### Passos para Rodar o Projeto
 
-## Learn More
+1. **Clone o repositório:**
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   git clone <URL_DO_REPOSITORIO>
+   cd big-store
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Crie um arquivo `.env` baseado no `.env.example`:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```bash
+   cp .env.example .env
+   ```
 
-## Deploy on Vercel
+3. **Instale as dependências:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm install
+   # ou
+   yarn install
+   # ou
+   pnpm install
+   # ou
+   bun install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+4. **Inicie o servidor de desenvolvimento:**
+
+   ```bash
+   npm run dev
+   # ou
+   yarn dev
+   # ou
+   pnpm dev
+   # ou
+   bun dev
+   ```
+
+5. **Abra o navegador e acesse:**
+
+   ```
+   http://localhost:3000
+   ```
+
+### Scripts Disponíveis
+
+- `dev`: Inicia o servidor de desenvolvimento.
+- `build`: Compila o projeto para produção.
+- `start`: Inicia o servidor em modo de produção.
+- `lint`: Executa o linter para verificar problemas no código.
+- `test`: Executa os testes utilizando Jest.
+
+### Motivação das Escolhas Técnicas
+
+- **Next.js**: Escolhido por ser um framework React que oferece renderização do lado do servidor (SSR) e geração de sites estáticos (SSG), o que melhora a performance e SEO da aplicação.
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário, conhecida por sua eficiência e modularidade.
+- **TypeScript**: Adiciona tipagem estática ao JavaScript, ajudando a evitar erros e melhorar a manutenção do código.
+- **TailwindCSS**: Framework de CSS utilitário que permite um desenvolvimento rápido e consistente de estilos.
+- **Zustand**: Biblioteca de gerenciamento de estado simples e escalável.
+- **Jest** e **Testing Library**: Ferramentas para testes unitários e de integração, garantindo a qualidade do código.
+- **ESLint** e **Prettier**: Ferramentas para manter a consistência e qualidade do código.
+- **shadcn**: Utilizado para componentes de UI, proporcionando uma experiência de desenvolvimento mais rápida e consistente.
+- **Material UI**: Utilizado para ícones, fornecendo uma ampla gama de ícones prontos para uso.
+
+### Dependências Principais
+
+- `@shadcn/ui` e `@mui/icons-material`: Componentes de UI prontos para uso.
+- `@tanstack/react-query`: Para gerenciamento de estado assíncrono e cache de dados.
+- `axios`: Cliente HTTP para fazer requisições à API.
+- `formik`: Para gerenciamento de formulários.
+- `zustand`: Para gerenciamento de estado global.
+- `tailwindcss` e `tailwindcss-animate`: Para estilização rápida e animações.
+
+### Dependências de Desenvolvimento
+
+- `@testing-library/react` e `jest`: Para testes.
+- `eslint` e `prettier`: Para linting e formatação de código.
+- `typescript`: Para tipagem estática.
+
+### Estrutura de Pastas
+
+- `src/app`: Contém as páginas da aplicação.
+- `src/components`: Contém os componentes reutilizáveis.
+- `src/functions`: Contém funções utilitárias.
+- `src/hooks`: Contém hooks personalizados.
+- `src/stores`: Contém os stores do Zustand.
+- `src/services`: Contém os serviços para fazer requisições à API.
+- `src/utils`: Contém funções utilitárias.
+- `src/@types`: Contém definições de tipos.
+
+### Contribuição
+
+Contribuições são bem-vindas! Por favor, abra uma issue ou envie um pull request.
+
+### Licença
+
+Este projeto está licenciado sob a licença MIT.

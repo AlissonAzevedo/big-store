@@ -1,26 +1,25 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "https://fakestoreapi.com",
+  baseURL: process.env.NEXT_PUBLIC_API_AUTH_URL,
 });
 
-
 instance.interceptors.request.use(
-    (config) => {
-        return config;
-    },
-    (error) => {
-        return Promise.reject(error);
-    }
+  (config) => {
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  },
 );
 
 instance.interceptors.response.use(
-    (response) => {
-        return response;
-    },
-    (error) => {
-        return Promise.reject(error);
-    }
+  (response) => {
+    return response;
+  },
+  (error) => {
+    return Promise.reject(error);
+  },
 );
 
-export {instance};
+export { instance };
