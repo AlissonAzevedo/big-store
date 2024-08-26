@@ -1,10 +1,7 @@
 import "@/app/globals.css";
-import { ContainerLayout } from "@/components/layout/admin/ContainerLayout";
+import { SidebarWrapper } from "@/components/layout/admin/Sidebar/SideBarWrapper";
 import { Metadata } from "next";
-import { Inter } from "next/font/google";
 import React from "react";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   description: "Admin Page",
@@ -16,5 +13,5 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <ContainerLayout>{children}</ContainerLayout>;
+  return <SidebarWrapper>{children}</SidebarWrapper>;
 }
