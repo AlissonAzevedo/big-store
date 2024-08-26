@@ -13,10 +13,10 @@ const LoadingSkeletonTableProducts = () => {
   return (
     <div
       className={
-        "p-1 border border-neutral-300 dark:border-neutral-70 rounded-lg h-[600px] overflow-hidden"
+        "p-1 border border-neutral-300 dark:border-neutral-70 rounded-lg h-[600px] overflow-hidden w-full"
       }
     >
-      <div className="flex flex-col overflow-y-auto h-full">
+      <div className="flex flex-col overflow-y-auto h-full w-full">
         <div className="p-2">
           <Skeleton className="w-full h-10 mb-2" />
         </div>

@@ -13,7 +13,7 @@ export const ContainerLayout = ({ children }: ContainerLayoutProps) => {
 
       <div className="relative flex flex-1 flex-col lg:ml-72.5">
         <main>
-          <div className="mx-auto max-w-screen-2xl p-4 md:p-2 2xl:p-4">
+          <div className="mx-auto max-w-screen-2xl p-4 md:p-2 2xl:p-2">
             {children}
           </div>
         </main>

@@ -28,7 +28,7 @@ const Sidebar: React.FC<SidebarProps> = ({ items }) => {
       }
     >
       {items.map((item, index) => (
-        <li key={index}>
+        <li className={"my-1"} key={index}>
           <Link href={item.href}>
             <Button
               className={cn(

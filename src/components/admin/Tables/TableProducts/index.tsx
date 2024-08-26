@@ -144,7 +144,7 @@ const TableProducts = () => {
       </div>
       <div
         className={
-          "p-1 border border-neutral-300 dark:border-neutral-70 rounded-lg h-[600px] overflow-hidden"
+          "p-1 border border-neutral-300 dark:border-neutral-70 rounded-lg h-[600px] overflow-hidden w-full"
         }
       >
         <div className="overflow-y-auto h-full">
