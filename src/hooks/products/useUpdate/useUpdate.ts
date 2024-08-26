@@ -3,7 +3,7 @@ import { PRODUCTS } from "@/services/apiFakeStore/apiRoutes/products";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 
-function useUpdateProduct(invalidateQuery: string[]) {
+function useUpdateProduct(invalidateQuery?: string[]) {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (payload: IProduct) => {

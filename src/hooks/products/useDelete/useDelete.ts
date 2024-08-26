@@ -2,7 +2,7 @@ import { PRODUCTS } from "@/services/apiFakeStore/apiRoutes/products";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 
-function useDeleteProdct(invalidateQuery: string[]) {
+function useDeleteProduct(invalidateQuery?: string[]) {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (id: string) => {
@@ -20,4 +20,4 @@ function useDeleteProdct(invalidateQuery: string[]) {
   });
 }
 
-export { useDeleteProdct };
+export { useDeleteProduct };

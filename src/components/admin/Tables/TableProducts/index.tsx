@@ -1,6 +1,7 @@
 "use client";
 
 import { SearchInput } from "@/components/admin/Tables/TableProducts/SearchInput";
+import { TableProductItem } from "@/components/admin/Tables/TableProducts/TableProductItem";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
   Table,
@@ -10,13 +11,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import formatCurrency from "@/functions/formatCurrency";
-import { TranslateCategory } from "@/functions/translateCategory";
 import { useGetAllProducts } from "@/hooks/products/useGet/useGetAll";
 import { useProductStore } from "@/stores/productsStore/products-store";
-import { DeleteOutline, EditOutlined } from "@mui/icons-material";
-import { IconButton } from "@mui/material";
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 const TableProducts = () => {
@@ -79,34 +75,7 @@ const TableProducts = () => {
               )}
               {filteredProducts?.map((product) => (
                 <TableRow key={product.id}>
-                  <TableCell>
-                    <div
-                      className={
-                        "p-1 border border-neutral-300 dark:border-neutral-70 flex justify-center items-center rounded-lg"
-                      }
-                    >
-                      <Image
-                        alt={product.title}
-                        className="object-cover rounded"
-                        height={64}
-                        src={product.image}
-                        width={64}
-                      />
-                    </div>
-                  </TableCell>
-                  <TableCell className="font-medium">{product.title}</TableCell>
-                  <TableCell>{TranslateCategory(product.category)}</TableCell>
-                  <TableCell className="text-center">
-                    {formatCurrency(product.price)}
-                  </TableCell>
-                  <TableCell className="text-right">
-                    <IconButton aria-label="edit" color="primary">
-                      <EditOutlined />
-                    </IconButton>
-                    <IconButton aria-label="delete" color="error">
-                      <DeleteOutline />
-                    </IconButton>
-                  </TableCell>
+                  <TableProductItem product={product} />
                 </TableRow>
               ))}
             </TableBody>
