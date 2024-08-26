@@ -18,12 +18,12 @@ const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
 
   useEffect(() => {
     if (!token && !isPublicPage(pathname)) {
-      router.push("/login"); // Redireciona para a página de login se não for pública
+      router.push("/login");
     }
   }, [token, pathname, router]);
 
   if (!token && !isPublicPage(pathname)) {
-    return null; // Ou um carregamento de spinner enquanto verifica
+    return null;
   }
 
   return <>{children}</>;

@@ -55,6 +55,25 @@ Este é um projeto chamado **Big Store**, desenvolvido utilizando **Next.js** e 
    ```
    http://localhost:3000
    ```
+   
+6. **Para rodar os testes:**
+
+   ```bash
+    npm test
+    # ou
+    yarn test
+    # ou
+    pnpm test
+    # ou
+    bun test
+    ```
+
+### Acesso ao Sistema
+
+Para acessar o sistema, utilize as seguintes credenciais:
+
+- **Username**: `mor_2314`
+- **Password**: `83r5^_`
 
 ### Scripts Disponíveis
 
