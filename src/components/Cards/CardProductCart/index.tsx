@@ -26,6 +26,7 @@ const CardProductCart = ({
       <div className="relative flex w-full flex-row justify-between px-1 py-4 items-center">
         <div className="absolute z-40 -ml-1 -mt-12">
           <Button
+            aria-label="Remove"
             className="flex h-[24px] w-[24px] items-center justify-center rounded-full p-1 bg-neutral-50"
             onClick={() => onRemove(product.id!)}
             size="icon"
@@ -62,6 +63,7 @@ const CardProductCart = ({
 
           <div className="ml-auto flex h-9 flex-row items-center rounded-full border border-neutral-200 dark:border-neutral-700 p-1">
             <Button
+              aria-label="Decrease"
               className="ease flex h-full min-w-[36px] max-w-[36px] flex-none items-center justify-center rounded-full p-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80"
               onClick={() => onDecreaseQuantity(product.id!)}
               size="icon"
@@ -75,6 +77,7 @@ const CardProductCart = ({
             </p>
 
             <Button
+              aria-label={"Add"}
               className="ease flex h-full min-w-[36px] max-w-[36px] flex-none items-center justify-center rounded-full p-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80"
               onClick={() => onIncreaseQuantity(product.id!)}
               size="icon"
