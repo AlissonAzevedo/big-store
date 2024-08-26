@@ -27,7 +27,7 @@ const CardProductCart = ({
         <div className="absolute z-40 -ml-1 -mt-12">
           <Button
             className="flex h-[24px] w-[24px] items-center justify-center rounded-full p-1 bg-neutral-50"
-            onClick={() => onRemove(product.id)}
+            onClick={() => onRemove(product.id!)}
             size="icon"
             variant="ghost"
           >
@@ -42,7 +42,7 @@ const CardProductCart = ({
               className="h-full w-full object-cover"
               height={64}
               layout="responsive"
-              src={product.image}
+              src={product.image!}
               width={64}
             />
           </div>
@@ -63,7 +63,7 @@ const CardProductCart = ({
           <div className="ml-auto flex h-9 flex-row items-center rounded-full border border-neutral-200 dark:border-neutral-700 p-1">
             <Button
               className="ease flex h-full min-w-[36px] max-w-[36px] flex-none items-center justify-center rounded-full p-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80"
-              onClick={() => onDecreaseQuantity(product.id)}
+              onClick={() => onDecreaseQuantity(product.id!)}
               size="icon"
               variant="ghost"
             >
@@ -76,7 +76,7 @@ const CardProductCart = ({
 
             <Button
               className="ease flex h-full min-w-[36px] max-w-[36px] flex-none items-center justify-center rounded-full p-2 transition-all duration-200 hover:border-neutral-800 hover:opacity-80"
-              onClick={() => onIncreaseQuantity(product.id)}
+              onClick={() => onIncreaseQuantity(product.id!)}
               size="icon"
               variant="ghost"
             >

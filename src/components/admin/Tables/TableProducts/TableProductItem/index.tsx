@@ -63,7 +63,7 @@ const TableProductItem = ({ product }: { product: IProduct }) => {
             alt={product.title}
             className="object-cover rounded"
             height={64}
-            src={product.image}
+            src={product.image!}
             width={64}
           />
         </div>

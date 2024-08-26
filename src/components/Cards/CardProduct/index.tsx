@@ -25,7 +25,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             objectFit="contain"
             priority
             sizes="(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
-            src={product.image}
+            src={product.image!}
           />
           <div className="absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label">
             <span

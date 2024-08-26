@@ -11,7 +11,7 @@ const CardProductFeatured = ({ product }: { product: IProduct }) => {
           alt={product.title}
           className="relative h-full w-full object-contain transition duration-300 ease-in-out group-hover:scale-105 p-6"
           layout="fill"
-          src={product.image}
+          src={product.image!}
         />
         <div className="absolute bottom-0 left-0 flex w-full px-4 pb-4">
           <div className="flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
