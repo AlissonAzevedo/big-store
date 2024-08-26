@@ -2,6 +2,7 @@
 
 import { IProduct } from "@/@types/products";
 import formatCurrency from "@/functions/formatCurrency";
+import { Star } from "@mui/icons-material";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -27,15 +28,19 @@ export default function ProductCard({ product }: ProductCardProps) {
             src={product.image}
           />
           <div className="absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label">
+            <span
+              className="absolute @[275px]/label:inline text-black items-center flex-none -mt-10 ml-2 flex border bg-white/70 backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white py-1 px-2 rounded-xl"
+              title={`Avaliação: ${product?.rating?.rate} (${product?.rating?.count})`}
+            >
+              <Star className="text-yellow-400 mr-1 transition-opacity animate-fadeIn " />
+              {product?.rating?.rate}
+            </span>
             <div className="flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
               <h3 className="mr-4 line-clamp-2 flex-grow pl-2 leading-none tracking-tight">
                 {product.title}
               </h3>
-              <p className="flex-none rounded-full bg-blue-600 p-2 text-white">
+              <p className="flex-none rounded-full bg-blue-600 p-2 text-white relative">
                 {formatCurrency(product.price, "BRL")}
-                <span className="ml-1 inline @[275px]/label:inline">
-                  {product?.rating?.rate} ({product?.rating?.count})
-                </span>
               </p>
             </div>
           </div>
