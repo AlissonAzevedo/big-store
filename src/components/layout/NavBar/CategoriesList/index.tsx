@@ -12,7 +12,7 @@ const CategoriesList = () => {
           className="text-neutral-500 underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
           href={"/search"}
         >
-          All
+          Todos
         </Link>
       </li>
       {data
