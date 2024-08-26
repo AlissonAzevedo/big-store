@@ -50,6 +50,7 @@ const useCartStore = create<CartState>()(
       clearCart: () =>
         set(() => ({
           cart: [],
+          showCart: false,
           total: 0,
         })),
 
