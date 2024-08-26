@@ -6,6 +6,7 @@ import { useCart } from "@/hooks/cart/useCart";
 import { useGetOneProduct } from "@/hooks/products/useGet/useGetOne";
 import { useCartStore } from "@/stores/cartStore/cart-store";
 import { AddShoppingCart } from "@mui/icons-material";
+import Image from "next/image";
 import { useParams } from "next/navigation";
 import React from "react";
 
@@ -27,10 +28,10 @@ const ProductCardDetail = () => {
     <div className="flex flex-col rounded-lg border border-neutral-200 bg-white p-8 md:p-12 lg:flex-row lg:gap-8 dark:border-neutral-800 dark:bg-black">
       <div className="h-full w-full basis-full lg:basis-4/6">
         <div className="relative aspect-square h-full max-h-[550px] w-full overflow-hidden">
-          <img
-            alt={data?.title}
+          <Image
+            alt={data?.title!}
             className="h-full w-full object-contain"
-            src={data?.image}
+            src={data?.image!}
           />
         </div>
       </div>

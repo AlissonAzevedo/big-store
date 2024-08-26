@@ -5,9 +5,9 @@ import React from "react";
 const Footer = () => {
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/blog", label: "Blog" },
-    { href: "/contact", label: "Contact" },
+    { href: "/admin", label: "Admin" },
+    { href: "#", label: "Blog" },
+    { href: "#", label: "Contact" },
   ];
   return (
     <footer className="text-sm text-neutral-500 dark:text-neutral-400">
