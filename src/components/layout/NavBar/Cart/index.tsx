@@ -4,6 +4,7 @@ import { useCartStore } from "@/stores/cartStore/cart-store";
 import { ShoppingCartOutlined } from "@mui/icons-material";
 import React from "react";
 
+// eslint-disable-next-line react/display-name
 const CartButton = React.forwardRef<HTMLButtonElement, { onClick: () => void }>(
   ({ onClick }, ref) => {
     const cart = useCartStore((state) => state.cart);
