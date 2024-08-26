@@ -26,7 +26,7 @@ const DrawerCart = () => {
   } = useCart();
 
   return (
-    <Sheet modal onOpenChange={handleViewCart} open={showCart}>
+    <Sheet open={showCart}>
       <SheetTrigger asChild>
         <CartButton onClick={handleViewCart} />
       </SheetTrigger>
