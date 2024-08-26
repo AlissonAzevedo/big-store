@@ -1,11 +1,11 @@
 import { Axios } from "axios";
 
 /**
- * Envia uma requisição GET para a URL especificada com opções opcionais.
+ * Envia uma requisição HTTP GET para a URL especificada e retorna os dados da resposta.
  *
- * @param instance
+ * @param instance - Instância do Axios a ser utilizada para a requisição.
  * @param {string} path - A URL para onde a requisição GET será enviada.
- * @returns {Promise<T>} - Uma promessa que resolve os dados da resposta.
+ * @returns {Promise<T>} - Uma promessa que resolve com os dados da resposta da requisição.
  */
 export async function get<T>(instance: Axios, path: string): Promise<T> {
   try {
@@ -17,12 +17,12 @@ export async function get<T>(instance: Axios, path: string): Promise<T> {
 }
 
 /**
- * Realiza uma requisição HTTP POST para a URL especificada com os dados fornecidos.
+ * Realiza uma requisição HTTP POST para a URL especificada com os dados fornecidos e retorna os dados da resposta.
  *
- * @param instance
+ * @param instance - Instância do Axios a ser utilizada para a requisição.
  * @param {string} path - A URL para enviar a requisição POST.
- * @param {*} data - Os dados para enviar no corpo da requisição POST.
- * @returns {Promise<T>} - Uma promessa que resolve com os dados da resposta do servidor.
+ * @param {unknown} data - Os dados a serem enviados no corpo da requisição POST.
+ * @returns {Promise<T>} - Uma promessa que resolve com os dados da resposta da requisição.
  */
 export async function post<T>(
   instance: Axios,
@@ -38,12 +38,12 @@ export async function post<T>(
 }
 
 /**
- * Faz uma requisição PUT para a URL especificada com os dados fornecidos.
+ * Realiza uma requisição HTTP PUT para a URL especificada com os dados fornecidos e retorna os dados da resposta.
  *
- * @param instance
- * @param {string} path - A URL para fazer a requisição PUT.
- * @param {unknown} data - Os dados para enviar com a requisição PUT.
- * @returns {Promise<T>} Uma promessa que resolve com os dados da resposta da requisição PUT.
+ * @param instance - Instância do Axios a ser utilizada para a requisição.
+ * @param {string} path - A URL para enviar a requisição PUT.
+ * @param {unknown} data - Os dados a serem enviados no corpo da requisição PUT.
+ * @returns {Promise<T>} - Uma promessa que resolve com os dados da resposta da requisição.
  */
 export async function put<T>(
   instance: Axios,
@@ -59,12 +59,12 @@ export async function put<T>(
 }
 
 /**
- * Envia uma requisição PATCH para a URL especificada com os dados fornecidos.
+ * Envia uma requisição HTTP PATCH para a URL especificada com os dados fornecidos e retorna os dados da resposta.
  *
- * @param instance
- * @param path
- * @param {unknown} data - Os dados a serem enviados no corpo da requisição.
- * @returns {Promise<T>} Uma promessa que resolve para os dados da resposta da requisição PATCH.
+ * @param instance - Instância do Axios a ser utilizada para a requisição.
+ * @param {string} path - A URL para enviar a requisição PATCH.
+ * @param {unknown} data - Os dados a serem enviados no corpo da requisição PATCH.
+ * @returns {Promise<T>} - Uma promessa que resolve com os dados da resposta da requisição.
  */
 export async function patch<T>(
   instance: Axios,
@@ -80,11 +80,11 @@ export async function patch<T>(
 }
 
 /**
- * Faz uma requisição DELETE para a URL especificada com os dados fornecidos.
+ * Realiza uma requisição HTTP DELETE para a URL especificada e retorna os dados da resposta.
  *
- * @returns {Promise<T>} Uma promessa que resolve com os dados da resposta da requisição DELETE.
- * @param instance
- * @param path
+ * @param instance - Instância do Axios a ser utilizada para a requisição.
+ * @param {string} path - A URL para enviar a requisição DELETE.
+ * @returns {Promise<T>} - Uma promessa que resolve com os dados da resposta da requisição.
  */
 export async function del<T>(instance: Axios, path: string): Promise<T> {
   try {
