@@ -1,6 +1,6 @@
 "use client";
 import { usePathname, useRouter } from "next/navigation";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
@@ -11,18 +11,23 @@ const isPublicPage = (pathname: string) => {
 };
 
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
+  const [isMounted, setIsMounted] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
   const token =
     typeof window !== "undefined" ? localStorage.getItem("token") : null;
 
   useEffect(() => {
-    if (!token && !isPublicPage(pathname)) {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (isMounted && !token && !isPublicPage(pathname)) {
       router.push("/login");
     }
-  }, [token, pathname, router]);
+  }, [token, pathname, router, isMounted]);
 
-  if (!token && !isPublicPage(pathname)) {
+  if (!isMounted || (!token && !isPublicPage(pathname))) {
     return null;
   }
 
