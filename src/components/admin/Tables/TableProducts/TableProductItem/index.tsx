@@ -51,7 +51,7 @@ const TableProductItem = ({ product }: { product: IProduct }) => {
   });
 
   const handleDelete = async () => {
-    await deleteProduct(product.id);
+    deleteProduct(String(product.id));
     setIsDeleteDialogOpen(false);
   };
 
@@ -76,9 +76,9 @@ const TableProductItem = ({ product }: { product: IProduct }) => {
       <TableCell className="text-right">
         <Dialog onOpenChange={setIsEditDialogOpen} open={isEditDialogOpen}>
           <DialogTrigger asChild>
-            <IconButton aria-label="edit" color="primary">
-              <EditOutlined />
-            </IconButton>
+            <Button className={"rounded-full"} size={"icon"} variant={"ghost"}>
+              <EditOutlined className={"text-primary"} />
+            </Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
@@ -89,6 +89,7 @@ const TableProductItem = ({ product }: { product: IProduct }) => {
                 <Input
                   name="title"
                   onChange={formik.handleChange}
+                  placeholder={"Nome"}
                   value={formik.values.title}
                 />
                 <Select
@@ -110,9 +111,9 @@ const TableProductItem = ({ product }: { product: IProduct }) => {
                   </SelectContent>
                 </Select>
                 <Input
-                  id="price"
                   name="price"
                   onChange={formik.handleChange}
+                  placeholder={"Preço"}
                   type="number"
                   value={formik.values.price}
                 />
@@ -133,9 +134,9 @@ const TableProductItem = ({ product }: { product: IProduct }) => {
 
         <Dialog onOpenChange={setIsDeleteDialogOpen} open={isDeleteDialogOpen}>
           <DialogTrigger asChild>
-            <IconButton aria-label="delete" color="error">
-              <DeleteOutline />
-            </IconButton>
+            <Button className={"rounded-full"} size={"icon"} variant={"ghost"}>
+              <DeleteOutline className={"text-red-600 "} />
+            </Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
